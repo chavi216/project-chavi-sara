@@ -1,0 +1,56 @@
+/* מיכל קטן שלא דוחף כפתורים */
+.color-picker { position: relative; display: inline-block; margin: 0 4px 8px; }
+
+/* הכפתור – גובה כמו .letter (50px), רוחב אוטומטי */
+.color-picker-display {
+  border: 1px solid #ddd;
+  border-radius: 25px;           /* עגול כמו כפתור */
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  height: 50px;
+  padding: 0 10px;               /* קטן! */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  min-width: 0;                  /* אל תכריח רוחב */
+}
+
+.color-picker-display:hover { background-color: #eaeaea; }
+
+/* הרשימה – צפה, לא דוחפת את ה-layout */
+.color-picker-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+  margin-top: 6px;
+  padding: 6px;
+  list-style: none;
+  width: auto;                   /* אין צורך לקבע */
+  display: grid;                 /* רשת קטנה של נקודות */
+  grid-template-columns: repeat(5, 22px);
+  gap: 8px;
+}
+
+/* פריט צבע – רק הנקודה */
+.color-item {
+  padding: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.color-item.selected { outline: 2px solid #bbb; outline-offset: 2px; }
+
+.color-dot {
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 2px solid rgba(0,0,0,.1);
+}
+
+.caret { line-height: 1; }
