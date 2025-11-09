@@ -1,18 +1,30 @@
 import Keyboard from "./keyboard";
 
 
-function Deletchar({ setText}) {
-    const cancelechar = () => {    
+function Deletchar({ setContent }) {
 
-        setText(prevText => {
-        const graphemes = [...prevText]; 
-        if (graphemes.length === 0) return "";
-        graphemes.pop();
-        return graphemes.join("");
-    });
+
+    const cancelechar = () => {
+        setContent(prevContent => {
+            if (prevContent.length === 0) return [];
+
+            const updated = [...prevContent];
+            let lastPart = { ...updated[updated.length - 1] };
+            const chars = Array.from(lastPart.text);
+
+            if (chars.length === 1) {
+                updated.pop();
+            } else {
+                chars.pop();
+                lastPart.text = chars.join("");
+                updated[updated.length - 1] = lastPart;
+            }
+
+
+            return updated;
+        });
     }
 
-    
     return (
         <div>
             <button className="letter" onClick={cancelechar}>

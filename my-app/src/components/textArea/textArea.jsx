@@ -1,12 +1,12 @@
 import TextApp from "../textApp/textApp";
 
 
-function TextArea({ text , font , color, size}) {
+function TextArea({ content, font, color, size }) {
 
 
     return (
-        <div className="textArea">
-            <textarea
+        <div className="textArea" style={{rows: "10", cols: "50", border: "1px solid #000000ff"}}>
+            {/* <textarea
                 id="text-area"
                 className="text-input"
                 rows="10"
@@ -14,8 +14,15 @@ function TextArea({ text , font , color, size}) {
                 style={{ fontFamily: `'${font}', sans-serif`, color , fontSize: `${size}px` }}
                 value={text}
                 readOnly
-            />
+            /> */}
+            {content.map((part, i) => (
+                <span key={i} style={part.style}>
+                    {part.text}
+                </span>
+            ))}
         </div>
+
+
     );
 
 

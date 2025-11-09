@@ -1,8 +1,8 @@
 import Keyboard from "./keyboard";
 
-function DeleteAll({ setText }) {
+function DeleteAll({ setContent }) {
     const clearAll = () => {
-        setText("");
+        setContent([]);
     };
 
     return (

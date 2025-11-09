@@ -8,8 +8,7 @@ import TextApp from './components/textApp/textApp.jsx'
 
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
     <TextApp />
-  
-  </StrictMode>,
+  // </StrictMode>,
 )
