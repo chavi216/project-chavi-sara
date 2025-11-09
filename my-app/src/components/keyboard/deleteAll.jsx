@@ -1,7 +1,6 @@
-import Keyboard from "./keyboard";
-
-function DeleteAll({ setContent }) {
+function DeleteAll({ content, setContent, setHistory }) {
     const clearAll = () => {
+        setHistory(prev => [...prev, content]); // <-- שומרים את המצב הנוכחי
         setContent([]);
     };
 

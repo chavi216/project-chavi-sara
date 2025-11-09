@@ -118,8 +118,6 @@
   }
 }
 
-
-/* === Find bar === */
 .find-bar {
   display: flex;
   gap: 10px;
@@ -130,10 +128,7 @@
   margin: 10px auto 20px auto;
 }
 
-/* שדה החיפוש – שומר שפה עיצובית של .text-input אבל קומפקטי */
 .find-input {
-  flex: 1;
-  min-width: 160px;
   height: 44px;
   padding: 8px 14px;
   font-size: 16px;
@@ -142,14 +137,23 @@
   box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
   background-color: #fafafa;
   outline: none;
+  text-align: center;
 }
 
-/* כפתור חיפוש – ממחזר את .letter עם התאמות */
+/* קטן בגודל תו, מעוגל – תואם לשפה העיצובית של letter */
+.find-input--tiny {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  font-size: 18px;
+  border-radius: 50%;
+}
+
 .letter.letter--action {
   width: auto;
   height: 44px;
   padding: 0 18px;
-  border-radius: 9999px; /* קפסולה נעימה */
+  border-radius: 9999px;
   font-size: 16px;
   box-shadow: 5px 5px 10px #d1d1d1, -5px -5px 10px #ffffff;
 }
@@ -159,11 +163,69 @@
   box-shadow: inset 3px 3px 5px #d1d1d1, inset -3px -3px 5px #ffffff;
 }
 
-/* רספונסיביות */
 @media (max-width: 600px) {
-  .find-input {
+  .find-input--tiny {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+  .letter.letter--action {
     height: 40px;
+    padding: 0 14px;
     font-size: 15px;
+  }
+}
+
+
+.find-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 600px;
+  margin: 10px auto 20px auto;
+}
+
+.find-input {
+  height: 44px;
+  padding: 8px 14px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 2px solid #ccc;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+  background-color: #fafafa;
+  outline: none;
+  text-align: center;
+}
+
+.find-input--tiny {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  font-size: 18px;
+  border-radius: 50%;
+}
+
+.letter.letter--action {
+  width: auto;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 9999px;
+  font-size: 16px;
+  box-shadow: 5px 5px 10px #d1d1d1, -5px -5px 10px #ffffff;
+}
+
+.letter.letter--action:active {
+  transform: translateY(2px);
+  box-shadow: inset 3px 3px 5px #d1d1d1, inset -3px -3px 5px #ffffff;
+}
+
+@media (max-width: 600px) {
+  .find-input--tiny {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
   }
   .letter.letter--action {
     height: 40px;
