@@ -1,21 +1,22 @@
 import Keyboard from "./keyboard";
 
-function DeleteWord({ setText, arrchar, setArrchar }) {
-    const cancelword = () => { 
+function DeleteWord({ text, setText }) {
 
-    if (!arrchar || arrchar.length === 0) return;
-    const trimmed = arrchar.join("").trimEnd();
-    const lastSpaceIndex = trimmed.lastIndexOf(" ");
-    const newArr = lastSpaceIndex === -1 ? [] : arrchar.slice(0, lastSpaceIndex + 1);
-    setArrchar(newArr);
-    setText(newArr.join("")); 
-  };
-    
+  const cancelword = () => {
+        text = text.trimEnd();
+        const lastSpaceIndex = text.lastIndexOf(' ');
+        if (lastSpaceIndex === -1) {
+            setText('');
+        }
+        else {
+            setText(text.slice(0, lastSpaceIndex));
+        }
+    };
     
     return (
         <div>
             <button className="letter" onClick={cancelword}>
-                ⬅️
+                🔙
             </button>
         </div>
     );

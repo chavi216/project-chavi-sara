@@ -8,6 +8,7 @@ import Undo from './undo.jsx';
 import FontPicker from './fontPicker.jsx';
 import ColorPicker from './colorPicker.jsx';
 import SizePicker from './SizePicker.jsx';
+import DeleteAll from './deleteAll.jsx';
 
 const en = [
     'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
@@ -37,12 +38,8 @@ function Keyboard({ text, setText, font, setFont ,color,setColor, size, setSize}
         setHistory((prev) => [...prev, { text, style }]);
     };
 
-   const [arrchar, setArrchar] = useState([]);
-   const handleletterclick = (char) => () => {
-       setArrchar(prev => [...prev, char]);
-        setText((prevText) => prevText + char);
-
-        
+    const handleletterclick = (char) => () => {
+            setText((prevText) => prevText + char);
     }
 
    const [language, setLanguage] = useState("en");
@@ -66,8 +63,9 @@ function Keyboard({ text, setText, font, setFont ,color,setColor, size, setSize}
     return (
         <div className="keyboard">
             <ToggleLanguage toggleLanguage={toggleLanguage} />
-            <Deletchar  setText={setText}  setArrchar={setArrchar} arrchar={arrchar}/>
-            <DeleteWord  setText={setText}  arrchar={arrchar} setArrchar={setArrchar} />
+            <DeleteAll setText={setText} />
+            <Deletchar setText={setText} />
+            <DeleteWord text={text} setText={setText} />
             <Undo history={history} setHistory={setHistory} setText={setText} setStyle={setStyle} />
             <FontPicker value={font} onChange={setFont} />
             <ColorPicker value={color} onChange={setColor} />

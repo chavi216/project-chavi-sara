@@ -7,6 +7,7 @@ function TextArea({ text , font , color, size}) {
     return (
         <div className="textArea">
             <textarea
+                id="text-area"
                 className="text-input"
                 rows="10"
                 cols="50"

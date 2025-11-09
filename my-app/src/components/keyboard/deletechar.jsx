@@ -1,20 +1,22 @@
 import Keyboard from "./keyboard";
 
 
-function Deletchar({ setText, setArrchar, arrchar }) {
-    const canceleaction = () => {    
-        setArrchar(prev => {
-            if (prev.length === 0) return prev;
-            return prev.slice(0, -1);
-            
-        });
-        
-        setText((prevText) => prevText.slice(0, -1));
+function Deletchar({ setText}) {
+    const cancelechar = () => {    
+
+        setText(prevText => {
+        const graphemes = [...prevText]; 
+        if (graphemes.length === 0) return "";
+        graphemes.pop();
+        return graphemes.join("");
+    });
     }
+
+    
     return (
         <div>
-            <button className="letter" onClick={canceleaction}>
-                ❎
+            <button className="letter" onClick={cancelechar}>
+                ⌫
             </button>
         </div>
     );
