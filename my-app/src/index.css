@@ -233,3 +233,194 @@
     font-size: 15px;
   }
 }
+
+
+/* סגנונות עבור FileBar */
+
+/* ===== FileBar (סרגל קבצים) ===== */
+.filebar {
+  position: sticky;     /* נשארת למעלה בזמן גלילה (לא חובה) */
+  top: 0;
+  z-index: 20;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 12px;
+  background: #ffffff;
+  border-bottom: 1px solid #e6e6e6;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+/* קלט שם קובץ */
+.filebar__name-input {
+  flex: 0 1 260px;      /* רוחב נוח אך גמיש */
+  min-width: 180px;
+  height: 38px;
+  padding: 0 12px;
+  border: 2px solid #d9d9d9;
+  border-radius: 10px;
+  background: #fafafa;
+  font-size: 15px;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+  direction: auto;
+}
+.filebar__name-input:focus {
+  border-color: #8ab4ff;
+  box-shadow: 0 0 0 3px rgba(138,180,255,.25);
+  background: #fff;
+}
+
+/* כפתורי פעולה כלליים */
+.btn {
+  height: 38px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .06s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+  user-select: none;
+  background: linear-gradient(145deg, #ffffff, #e9e9e9);
+  box-shadow: 4px 4px 10px #d6d6d6, -4px -4px 10px #ffffff;
+}
+.btn:hover {
+  box-shadow: 6px 6px 14px #d0d0d0, -6px -6px 14px #ffffff;
+}
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: inset 3px 3px 6px #d6d6d6, inset -3px -3px 6px #ffffff;
+}
+
+/* וריאנטים קלים לזיהוי */
+.btn--primary {
+  background: linear-gradient(145deg, #4f8dff, #2a6ff5);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(47, 116, 255, .25);
+}
+.btn--primary:hover {
+  box-shadow: 0 8px 18px rgba(47, 116, 255, .35);
+}
+.btn--ghost {
+  background: #f5f5f5;
+}
+.btn--danger {
+  background: linear-gradient(145deg, #ff6161, #ff3b3b);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(255, 77, 77, .25);
+}
+
+/* נגישות: פוקוס נראה גם בעכבר */
+.btn:focus-visible,
+.filebar__name-input:focus-visible,
+.filebar__list-close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(138,180,255,.35);
+}
+
+/* ===== חלון רשימת קבצים (Open) ===== */
+.filebar__open-panel {
+  position: absolute;
+  /* מומלץ שההורה של FileBar יהיה position: relative אם צריך עיגון */
+  inset-inline-start: 12px;     /* RTL/LTR נדיב */
+  top: 56px;                    /* מתחת לסרגל */
+  width: min(520px, 92vw);
+  max-height: 52vh;
+  overflow: auto;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+  padding: 10px;
+}
+
+.filebar__open-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 4px 10px;
+  border-bottom: 1px dashed #ececec;
+  margin-bottom: 6px;
+}
+.filebar__open-title {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.filebar__list-close {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 0;
+  background: #f2f2f2;
+  cursor: pointer;
+  transition: background .15s ease, transform .06s ease;
+}
+.filebar__list-close:hover { background: #e9e9e9; }
+.filebar__list-close:active { transform: translateY(1px); }
+
+.filebar__doc {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 6px;
+  border-radius: 10px;
+  transition: background .12s ease;
+}
+.filebar__doc:hover { background: #f8f8f8; }
+
+.filebar__doc-name {
+  all: unset;
+  color: #2a6ff5;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 600;
+  direction: auto;
+}
+.filebar__doc-time {
+  color: #7a7a7a;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* ===== עזרה קוסמטית סביב האזור העליון של כמה פאנלים (אם תשתמשי בחלק ג’) ===== */
+.panes-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  padding: 14px;
+}
+.pane-card {
+  border: 1px solid #e7e7e7;
+  border-radius: 12px;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+  cursor: pointer;
+  transition: box-shadow .15s ease, transform .06s ease;
+}
+.pane-card:hover { box-shadow: 0 10px 22px rgba(0,0,0,0.06); }
+.pane-card--active { box-shadow: 0 0 0 3px rgba(47,116,255,.25); }
+.pane-card__title {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.pane-card__close {
+  border: 0; background: #f2f2f2; border-radius: 8px; width: 28px; height: 28px; cursor: pointer;
+}
+.pane-card__preview {
+  max-height: 90px; overflow: hidden; white-space: pre-wrap; word-break: break-word;
+  color: #333; font-size: 14px;
+}
+.pane-card__dirty { color: #a66; font-size: 12px; margin-top: 6px; }
+
+/* רספונסיביות קלה */
+@media (max-width: 600px) {
+  .filebar { flex-wrap: wrap; gap: 6px; }
+  .filebar__name-input { flex: 1 1 auto; min-width: 140px; }
+  .btn { height: 36px; padding: 0 12px; font-size: 13px; }
+  .filebar__open-panel { width: min(96vw, 520px); }
+}

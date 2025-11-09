@@ -74,7 +74,7 @@ function Keyboard({ content, setContent, font, setFont, color, setColor, size, s
     });
 
 
-    const [applyToAll, setApplyToAll] = useState(true);
+    const [applyToAll, setApplyToAll] = useState(false);
 
     const [style, setStyle] = useState({});//בשביל הUNDO 
 
