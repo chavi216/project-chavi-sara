@@ -14,9 +14,9 @@ function TextApp() {
     const [font, setFont] = useState("Rubik");
     const [color, setColor] = useState("#111111");
     const [size, setSize] = useState(20);
-    const [currentDocId, setCurrentDocId] = useState(null);
+    const [currentDocId, setCurrentDocId] = useState(null);// מזהה מסמך בשביל השמירה
     const [fileName, setFileName] = useState("");
-    const [activeUser, setActiveUser] = useState("user1");
+    const [activeUser, setActiveUser] = useState("user1");//;משתמש פעיל  
 
 
     const activeContent = docs.find(d => d.id === activeDocId)?.content || [];
@@ -71,6 +71,7 @@ function TextApp() {
 
         const newId = Date.now();
         setDocs(prev => [...prev, { id: newId, name: "", content: [] }]);
+       
         setActiveDocId(newId);
         setFileName("");
         setCurrentDocId(null);
@@ -110,7 +111,8 @@ function TextApp() {
 
         setActiveDocId(loadedDoc.id);
         setCurrentDocId(loadedDoc.id);
-        setFileName("");
+        setFileName(loadedDoc.name || "");
+        
 
     };
 
@@ -177,7 +179,7 @@ function TextApp() {
                         <div className="docTitle">
                             {doc.name}
                         </div>
-                        <button onClick={(e) => { e.stopPropagation(); closeDoc(doc.id); }}>
+                        <button className="close-btn"  onClick={(e) => { e.stopPropagation(); closeDoc(doc.id); }}>
                             ✖
                         </button>
 

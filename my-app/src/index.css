@@ -695,3 +695,157 @@
   white-space: nowrap;
 }
 
+/* ========================================================= */
+/* 🌸  גריד הדפים – רווחים מושלמים, לא מתנגש */
+/* ========================================================= */
+
+.textAreasContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 34px;              /* רווח גדול ויפה */
+  padding: 30px;
+}
+
+
+/* ========================================================= */
+/* 🌸  עטיפת דף טקסט */
+/* ========================================================= */
+
+.textAreaWrapper {
+  position: relative;
+  padding-top: 34px;      /* מקום לכפתור ה-X */
+  transition: 0.2s ease;
+}
+
+.textAreaWrapper.active {
+  transform: scale(1.03);
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.12));
+}
+
+
+/* ========================================================= */
+/* 🌸  כפתור סגירה X פסטלי ומתוק */
+/* ========================================================= */
+
+.close-btn {
+  position: absolute;
+  top: -16px;             /* מוציא מעל הדף */
+  right: 10px;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  font-weight: bold;
+  color: #6a4b85;
+
+  background: #ffffff;
+  border: 2px solid #d6b8eb;
+  border-radius: 10px;
+
+  cursor: pointer;
+  z-index: 30;
+
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.1),
+    0 0 12px rgba(214, 184, 235, 0.5);
+
+  transition: 0.2s ease;
+}
+
+.close-btn:hover {
+  background: #f8efff;
+  transform: translateY(-2px);
+}
+
+.close-btn:active {
+  transform: scale(0.92);
+}
+
+
+/* ========================================================= */
+/* 🌸 textArea – צבעים פסטל לפי מיקום */
+/* ========================================================= */
+
+.textArea {
+  width: 100%;
+  min-height: 140px;
+
+  padding: 18px;
+  border-radius: 20px;
+
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: inset 0 4px 12px rgba(0,0,0,0.08);
+
+  background: white;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-y: auto;
+
+  font-size: 15px;
+  line-height: 1.45;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  transition: 0.15s ease;
+}
+
+/* ורוד פסטל */
+.textAreaWrapper:nth-child(5n + 1) .textArea {
+  background: #fde7f3;
+}
+
+/* צהוב פסטל */
+.textAreaWrapper:nth-child(5n + 2) .textArea {
+  background: #fffbdc;
+}
+
+/* מנטה */
+.textAreaWrapper:nth-child(5n + 3) .textArea {
+  background: #eaffea;
+}
+
+/* תכלת */
+.textAreaWrapper:nth-child(5n + 4) .textArea {
+  background: #eaf4ff;
+}
+
+/* לבנדר */
+.textAreaWrapper:nth-child(5n + 5) .textArea {
+  background: #f3eaff;
+}
+
+
+/* ========================================================= */
+/* 🌸 טקסט בתוך הדף */
+/* ========================================================= */
+.textArea span {
+  display: inline;
+}
+
+
+/* ========================================================= */
+/* 🌸 רספונסיביות */
+/* ========================================================= */
+
+@media (max-width: 600px) {
+  .textAreasContainer {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 26px;
+  }
+
+  .textArea {
+    min-height: 110px;
+    padding: 14px;
+  }
+
+  .close-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    top: -14px;
+  }
+}

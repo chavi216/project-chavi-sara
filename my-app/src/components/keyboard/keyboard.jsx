@@ -37,9 +37,7 @@ const emoji = [
 function Keyboard({ content, setContent, font, setFont, color, setColor, size, setSize }) {
 
     const [history, setHistory] = useState([]);
-    const handleChange = () => {
-        setHistory((prev) => [...prev, { text, style }]);
-    };
+   
 
 
     const handleletterClick = (char) => () => {
@@ -76,7 +74,7 @@ function Keyboard({ content, setContent, font, setFont, color, setColor, size, s
 
     const [applyToAll, setApplyToAll] = useState(false);
 
-    const [style, setStyle] = useState({});//בשביל הUNDO 
+    
 
     const currentLayout = language === "en" ? en :
         language === "he" ? he :
