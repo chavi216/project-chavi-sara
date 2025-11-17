@@ -1,0 +1,70 @@
+
+.font-picker {
+  position: relative;
+  display: inline-block;
+}
+
+.font-picker-display {
+  /* זה כדי שייראה כמו כפתור במקלדת שלך */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  padding: 10px 14px;
+  cursor: pointer;
+  min-width: 140px;
+  text-align: center;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.font-picker-display:hover {
+  background-color: #e6e6e6;
+}
+
+.font-picker-list {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  margin-top: 6px;
+  list-style: none;
+  padding: 0;
+  width: 160px;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.font-picker-list li {
+  padding: 8px 10px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.font-picker-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.font-picker-list li:active {
+  background-color: #ddd;
+}
+
+.font-picker { position: relative; display: inline-block; margin: 0 4px 8px; }
+
+.font-picker-display{
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  background:#f8f8f8;
+  box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  height: 50px;
+  padding: 0 12px;
+  display: inline-flex; align-items: center; gap: 8px;
+  cursor: pointer; user-select: none; min-width: 0;
+}
+
+.font-swatch { font-size: 18px; }
+.font-picker-list{ position:absolute; top:100%; left:0; z-index:100; /* והשאר כמו שהיה */ }

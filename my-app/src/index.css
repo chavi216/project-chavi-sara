@@ -1,0 +1,697 @@
+/* -------------------------------------------------- */
+/* 🎀 TEXT AREAS */
+/* -------------------------------------------------- */
+
+.textAreasContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 20px;
+}
+
+
+.textArea {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  width: 100%;
+  min-height: 80px;
+
+  padding: 15px;
+  border-radius: 14px;
+
+  background: #fff0f7;
+  border: 2px solid #f7b6d9;
+
+  box-shadow: inset 0 4px 12px rgba(244, 114, 182, 0.25);
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-y: auto;
+
+  transition: box-shadow .15s ease;
+}
+
+.textAreaWrapper.active .textArea {
+  box-shadow: inset 0 6px 16px rgba(236, 72, 153, 0.3);
+  border-color: #ec4899;
+}
+
+.textArea span {
+  display: inline;
+  margin: 0 1px;
+}
+
+
+
+/* -------------------------------------------------- */
+/* 🎀 USER BUTTONS */
+/* -------------------------------------------------- */
+
+.user-switch {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.user-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 2px solid #f9a8d4;
+
+  background: linear-gradient(135deg, #ffe4f1, #fdf2ff);
+  color: #8b1f4a;
+
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  box-shadow: 0 2px 4px rgba(244, 114, 182, 0.25);
+
+  transition: 0.2s ease;
+}
+
+.user-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(244, 114, 182, 0.35);
+}
+
+.user-btn--active {
+  background: linear-gradient(135deg, #f9a8d4, #fb7185);
+  color: white;
+  border-color: #ec4899;
+
+  box-shadow:
+    0 0 0 3px rgba(253, 242, 248, 0.8),
+    0 0 14px rgba(236, 72, 153, 0.9);
+
+  transform: translateY(-2px);
+}
+
+
+
+/* -------------------------------------------------- */
+/* 🎀 NEW DOCUMENT BUTTON */
+/* -------------------------------------------------- */
+
+.new-doc-btn {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 2px solid #f9a8d4;
+
+  background: linear-gradient(135deg, #ffe4f1, #fdf2ff);
+  color: #8b1f4a;
+
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+
+  box-shadow: 0 2px 4px rgba(244, 114, 182, 0.25);
+  transition: 0.2s ease;
+}
+
+.new-doc-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(244, 114, 182, 0.35);
+}
+
+.new-doc-btn:active {
+  transform: translateY(0);
+}
+
+
+
+/* -------------------------------------------------- */
+/* 🎀 FILE BAR */
+/* -------------------------------------------------- */
+
+.filebar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  padding: 10px 12px;
+  background: #fff0f7;
+  border-bottom: 2px solid #f7b6d9;
+
+  border-radius: 0 0 15px 15px;
+  margin-bottom: 15px;
+
+  box-shadow: 0 4px 12px rgba(244, 114, 182, 0.15);
+}
+
+.filebar__name-input {
+  flex: 0 1 260px;
+  min-width: 160px;
+
+  height: 38px;
+  padding: 0 12px;
+
+  border-radius: 12px;
+  border: 2px solid #f9a8d4;
+  background: #fff;
+
+  font-size: 15px;
+  color: #7a2c51;
+
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.filebar__name-input:focus {
+  border-color: #ec4899;
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.25);
+}
+
+
+
+/* -------------------------------------------------- */
+/* 🎀 FILEBAR BUTTONS */
+/* -------------------------------------------------- */
+
+.btn {
+  height: 38px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  background: #ffe4f1;
+  color: #8b1f4a;
+
+  box-shadow: 0 3px 6px rgba(244, 114, 182, 0.25);
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(244, 114, 182, 0.35);
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, #f472b6, #ec4899);
+  color: white;
+}
+
+.btn--ghost {
+  background: #fff0f7;
+}
+
+.btn--danger {
+  background: linear-gradient(135deg, #ff6b81, #ff4757);
+  color: white;
+}
+
+
+
+/* -------------------------------------------------- */
+/* 🎀 OPEN PANEL */
+/* -------------------------------------------------- */
+
+.filebar__open-panel {
+  position: absolute;
+  top: 60px;
+  inset-inline-start: 12px;
+
+  width: min(450px, 92vw);
+  max-height: 50vh;
+
+  background: white;
+  border: 2px solid #f7b6d9;
+  border-radius: 14px;
+
+  padding: 12px;
+
+  box-shadow: 0 18px 40px rgba(244, 114, 182, 0.25);
+}
+
+.filebar__doc:hover {
+  background: #fff0f7;
+}
+
+
+
+/* -------------------------------------------------- */
+/* 🎀 KEYBOARD */
+/* -------------------------------------------------- */
+
+/* -------------------------------------------------- */
+/* 🎀 KEYBOARD – גרסה חדשה וורודה ושיקית */
+/* -------------------------------------------------- */
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 12px;
+  padding: 20px 25px;
+
+  background: #ffe4f1; /* ורוד פסטלי */
+  border-radius: 20px;
+
+  box-shadow: 0 6px 18px rgba(244, 114, 182, 0.25);
+
+  margin: 40px auto;
+  max-width: 1100px;
+}
+
+/* כל כפתור אות רגיל */
+.letter {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: #ffffff;
+  color: #7a2c51;
+
+  box-shadow:
+    2px 2px 6px rgba(244, 114, 182, 0.25),
+    -2px -2px 6px rgba(255, 255, 255, 0.9);
+
+  font-size: 18px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.letter:hover {
+  background: #fff7fb;
+  transform: translateY(-2px);
+}
+
+.letter:active {
+  transform: translateY(1px);
+  box-shadow: inset 2px 2px 4px rgba(244, 114, 182, 0.25);
+}
+
+
+/* כפתורי פעולה (שפה, מחיקה, מציאת תווים וכו’) */
+.letter--action {
+  width: auto;
+  height: 44px;
+  padding: 0 20px;
+
+  border-radius: 999px;
+  background: #fff0f7;
+
+  font-size: 15px;
+  font-weight: 600;
+  color: #8b1f4a;
+
+  box-shadow:
+    0 3px 8px rgba(244, 114, 182, 0.25),
+    -2px -2px 6px rgba(255, 255, 255, 0.9);
+
+  transition: 0.15s ease;
+}
+
+.letter--action:hover {
+  transform: translateY(-2px);
+  background: #ffe4f5;
+}
+
+.letter--action:active {
+  transform: translateY(1px);
+  box-shadow: inset 2px 2px 4px rgba(244, 114, 182, 0.25);
+}
+
+
+/* כפתור החלפת שפה */
+.toggle-language {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  background: #ffffff;
+
+  border: 2px solid #f9a8d4;
+
+  color: #7a2c51;
+  font-size: 22px;
+
+  box-shadow: 0 3px 8px rgba(244, 114, 182, 0.25);
+
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.toggle-language:hover {
+  background: #fff7fb;
+  transform: translateY(-2px);
+}
+
+.toggle-language:active {
+  transform: translateY(1px);
+}
+
+
+/* כפתור מציאת תו קטן */
+.find-input--tiny {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+  border: 2px solid #f9a8d4;
+
+  background: #ffffff;
+  text-align: center;
+  font-size: 18px;
+
+  color: #7a2c51;
+
+  box-shadow:
+    inset 0 2px 6px rgba(244, 114, 182, 0.15);
+
+  outline: none;
+  transition: 0.15s ease;
+}
+
+.find-input--tiny:focus {
+  border-color: #ec4899;
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.25);
+}
+
+
+/* -------------------------------------------------- */
+/* ✨ התאמה למסכים קטנים */
+/* -------------------------------------------------- */
+@media (max-width: 600px) {
+  .letter {
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .toggle-language {
+    width: 44px;
+    height: 44px;
+  }
+
+  .letter--action {
+    padding: 0 14px;
+    font-size: 14px;
+  }
+}
+
+
+/* -------------------------------------------------- */
+/* 🎀 FIND BAR */
+/* -------------------------------------------------- */
+
+.find-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 15px auto;
+}
+
+.find-input {
+  height: 44px;
+  padding: 0 14px;
+
+  border-radius: 12px;
+  border: 2px solid #f9a8d4;
+  background: #fff;
+
+  font-size: 16px;
+  text-align: center;
+
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.find-input:focus {
+  border-color: #ec4899;
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.25);
+}
+/* ========================================================= */
+/* 🎀  גריד הדפים – קומפקטי ולא מתנגש */
+/* ========================================================= */
+
+.textAreasContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+
+/* ========================================================= */
+/* 🎀  עטיפת דף טקסט */
+/* ========================================================= */
+
+.textAreaWrapper {
+  position: relative;
+  padding-top: 30px;
+  transition: 0.2s ease;
+}
+
+.textAreaWrapper.active {
+  transform: scale(1.03);
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.12));
+}
+
+
+/* ========================================================= */
+/* 🎀  עיצוב כפתור הסגירה (X) */
+/* ========================================================= */
+
+.textAreaWrapper button {
+  position: absolute;
+  top: 0;
+  left: 10px;
+
+  padding: 2px 8px;
+  border-radius: 8px;
+
+  background: #ffffff;
+  border: 1px solid #dcbfe8;
+
+  color: #5a3c6a;
+  cursor: pointer;
+
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: 0.2s ease;
+}
+
+.textAreaWrapper button:hover {
+  background: #f7edfb;
+  transform: translateY(-2px);
+}
+
+
+/* ========================================================= */
+/* 🎀 textArea — קטן יותר + צבע פסטל לפי מיקום */
+/* ========================================================= */
+
+.textArea {
+  width: 100%;
+  min-height: 110px;
+
+  padding: 14px;
+  border-radius: 18px;
+
+  border: 1px solid rgba(0,0,0,0.07);
+  box-shadow: inset 0 4px 12px rgba(0,0,0,0.08);
+
+  white-space: pre-wrap;
+  word-break: break-word;
+
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: 0.15s ease;
+}
+
+/* ========================================================= */
+/* 🎨 צבעים פסטל לפי מיקום — CSS בלבד! */
+/* ========================================================= */
+
+.textAreaWrapper:nth-child(5n + 1) .textArea {
+  background: #ffeef6; /* ורוד פסטל */
+}
+
+.textAreaWrapper:nth-child(5n + 2) .textArea {
+  background: #fffbdc; /* צהוב פסטל */
+}
+
+.textAreaWrapper:nth-child(5n + 3) .textArea {
+  background: #eaffea; /* מנטה פסטל */
+}
+
+.textAreaWrapper:nth-child(5n + 4) .textArea {
+  background: #eaf4ff; /* תכלת פסטל */
+}
+
+.textAreaWrapper:nth-child(5n + 5) .textArea {
+  background: #f4eaff; /* סגול לבנדר */
+}
+
+
+/* ========================================================= */
+/* 🎀 טקסט בפנים */
+.textArea span {
+  display: inline;
+}
+
+
+/* ========================================================= */
+/* 🎀 רספונסיביות */
+@media (max-width: 500px) {
+  .textAreasContainer {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .textArea {
+    min-height: 90px;
+    padding: 10px;
+  }
+
+  .textAreaWrapper button {
+    padding: 2px 6px;
+    font-size: 12px;
+  }
+}
+
+/* ========================================================= */
+/* 🌸 חלון OPEN (רשימת הקבצים) */
+/* ========================================================= */
+
+.filebar__open-panel {
+  position: absolute;
+  top: 56px;
+  left: 12px;
+
+  width: min(420px, 92vw);
+  max-height: 55vh;
+
+  padding: 16px;
+  overflow-y: auto;
+
+  border-radius: 22px;
+  border: 1px solid #f2c8dd;
+
+  background: linear-gradient(180deg, #fff7fb, #ffeaf3);
+
+  box-shadow:
+    0 10px 24px rgba(244, 114, 182, 0.25),
+    0 4px 10px rgba(0, 0, 0, 0.05);
+
+  animation: fadeDown 0.28s ease;
+}
+
+/* אנימציה עדינה */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ========================================================= */
+/* 🌸 הכותרת של החלון */
+/* ========================================================= */
+
+.filebar__open-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+
+  border-bottom: 1px dashed #f2d4e6;
+}
+
+.filebar__open-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #7a2c51;
+}
+
+
+/* ========================================================= */
+/* 🌸 כפתור סגירה (X) */
+/* ========================================================= */
+
+.filebar__list-close {
+  width: 32px;
+  height: 32px;
+
+  border-radius: 10px;
+  border: 1px solid #f2c8dd;
+
+  background: #ffffff;
+  color: #7a2c51;
+  cursor: pointer;
+
+  box-shadow: 0 2px 6px rgba(244, 114, 182, 0.25);
+
+  transition: 0.2s ease;
+}
+
+.filebar__list-close:hover {
+  background: #ffe4f3;
+  transform: translateY(-2px);
+}
+
+/* ========================================================= */
+/* 🌸 כל קובץ ברשימה */
+/* ========================================================= */
+
+.filebar__doc {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+
+  padding: 10px 12px;
+  margin-bottom: 8px;
+
+  border-radius: 16px;
+  background: #ffffff;
+
+  border: 1px solid #f2d9ec;
+
+  box-shadow:
+    0 2px 6px rgba(244, 114, 182, 0.15),
+    inset 0 0 0 transparent;
+
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.filebar__doc:hover {
+  background: #fff2f8;
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 4px 12px rgba(244, 114, 182, 0.28);
+}
+
+/* שם הקובץ */
+.filebar__doc-name {
+  all: unset;
+  font-size: 15px;
+  font-weight: 600;
+  color: #a43d74;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* התאריך */
+.filebar__doc-time {
+  color: #7a6a74;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
